@@ -201,6 +201,13 @@
                 <version>2.0.2.Final</version>
                 <scope>provided</scope>
             </dependency>
+            <!-- Android dependencies -->
+            <dependency>
+                <groupId>android</groupId>
+                <artifactId>android</artifactId>
+                <version>4.4.2_r3</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
