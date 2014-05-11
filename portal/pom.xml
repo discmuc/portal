@@ -18,7 +18,21 @@
         <c2b.javaee.version>7</c2b.javaee.version>
         <c2b.android.jdk.version>7</c2b.android.jdk.version>
         <c2b.android.platform>19</c2b.android.platform>
+        <c2b.test.it.url.desktop>http://localhost:8180/portal-desktop</c2b.test.it.url.desktop>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <c2b.test.it.url.desktop>${c2b.test.it.url.desktop}</c2b.test.it.url.desktop>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <!-- dependency management -->
     <dependencyManagement>
@@ -216,6 +230,37 @@
                 <artifactId>compatibility-v13</artifactId>
                 <version>19.1.0</version>
             </dependency>
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>info.cukes</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>info.cukes</groupId>
+                <artifactId>cucumber-junit</artifactId>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>info.cukes</groupId>
+                <artifactId>cucumber-weld</artifactId>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>2.41.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.se</groupId>
+                <artifactId>weld-se</artifactId>
+                <version>2.2.0.SP1</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -224,8 +269,8 @@
         <repository>
             <id>jboss</id>
             <name>JBoss Maven repository</name>
-            <layout>default</layout>
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
             </releases>
